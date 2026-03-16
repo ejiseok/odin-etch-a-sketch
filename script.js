@@ -23,7 +23,12 @@ function resetGrid() {
 }
 
 function resizeGrid() {
-  width = parseInt(prompt("그리드 사이즈를 입력 (최대 100)"));
+  let size = parseInt(prompt("그리드 사이즈를 입력 (1 ~ 100)"));
+  if (size < 0 || size > 100) {
+    alert("유효한 사이즈를 입력하세요.");
+    return;
+  }
+  width = size;
   resetGrid();
 }
 

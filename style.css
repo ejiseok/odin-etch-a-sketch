@@ -2,14 +2,30 @@
   box-sizing: border-box;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
+  text-align: center;
+  margin: 50px auto 10px auto;
+}
+
+.header button {
+  align-self: flex-end;
+  font-size: 18px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  width: 960px;
+  margin: 0 auto;
 }
 
 .grid-item {
-  flex: 1 1 calc(6.25% - 10px);
+  /* flex: 1 1 calc(6.25% - 10px); */
+  flex-basis: calc(6.25% - 10px);
   background-color: lightgray;
   height: 50px;
 }

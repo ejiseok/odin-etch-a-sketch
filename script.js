@@ -3,7 +3,7 @@ function createGrid(width) {
     const gridItem = document.createElement("div");
 
     gridItem.classList.add("grid-item");
-    gridItem.style.flexBasis = `calc(${100 / width}%)`;
+    gridItem.style.flexBasis = `${100 / width}%`;
     gridItem.style.height = `${960 / width}px`;
 
     gridItem.addEventListener("mouseover", () => {
@@ -22,13 +22,19 @@ function resetGrid() {
   createGrid(width);
 }
 
+function resizeGrid() {
+  width = parseInt(prompt("그리드 사이즈를 입력 (최대 100)"));
+  resetGrid();
+}
+
 const container = document.querySelector(".container");
 const resetBtn = document.querySelector(".reset-btn");
+const newBtn = document.querySelector(".new-btn");
 
 let width = 16;
 
-resetBtn.addEventListener("click", () => {
-  resetGrid();
-});
+resetBtn.addEventListener("click", resetGrid);
+
+newBtn.addEventListener("click", resizeGrid);
 
 createGrid(width);

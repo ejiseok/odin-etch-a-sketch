@@ -1,29 +1,21 @@
-// function createGrid(width) {
-//   for (let i = 0; i < width * width; i++) {
-//     const gridItem = document.createElement("div");
-
-//     gridItem.classList.add("grid-item");
-//     gridItem.style.flexBasis = `${100 / width}%`;
-//     gridItem.style.height = `${960 / width}px`;
-
-//     gridItem.addEventListener("mouseover", () => {
-//       gridItem.classList.add("hovering");
-//     });
-
-//     container.appendChild(gridItem);
-//   }
-// }
+function getRandomHSL() {
+  const h = Math.floor(Math.random() * 361); // 색상
+  const s = Math.floor(Math.random() * 31) + 70; // 채도
+  const l = Math.floor(Math.random() * 21) + 70; // 밝기
+  
+  return `hsl(${h}, ${s}%, ${l}%)`;
+}
 
 function mouseDown(e) {
   isDrawing = true;
   if (e.target.classList.contains("grid-item")) {
-    e.target.classList.add("hovering");
+    e.target.style.backgroundColor = getRandomHSL();
   }
 }
 
 function mouseOver(e) {
   if (isDrawing && e.target.classList.contains("grid-item")) {
-    e.target.classList.add("hovering");
+    e.target.style.backgroundColor = getRandomHSL();
   }
 }
 
@@ -34,10 +26,6 @@ function createGrid(width) {
     gridItem.classList.add("grid-item");
     gridItem.style.flexBasis = `${100 / width}%`;
     gridItem.style.height = `${960 / width}px`;
-
-    gridItem.addEventListener("mouse", () => {
-      gridItem.classList.add("hovering");
-    });
 
     container.appendChild(gridItem);
   }
